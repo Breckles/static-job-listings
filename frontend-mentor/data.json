@@ -1,5 +1,4 @@
-[
-  {
+[{
     "id": 1,
     "company": "Photosnap",
     "logo": "./images/photosnap.svg",
@@ -8,7 +7,7 @@
     "position": "Senior Frontend Developer",
     "role": "Frontend",
     "level": "Senior",
-    "postedAt": "1d ago",
+    "postedAt": "2d ago",
     "contract": "Full Time",
     "location": "USA Only",
     "languages": ["HTML", "CSS", "JavaScript"],
