@@ -4,11 +4,15 @@
   display: block;
   width: 100%;
   height: 100%;
+}
 
-  background-color: black;
+app-header {
+  height: 156px;
 }
 
 main {
   width: 100%;
   height: 100%;
+
+  background-color: var(--main-bg-color);
 }
