@@ -1,1 +1,5 @@
-<p>job-listings works!</p>
+<ul>
+  <li *ngFor="let listing of listings">
+    <app-job-listing [listing]="listing"></app-job-listing>
+  </li>
+</ul>
