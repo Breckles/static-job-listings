@@ -8,9 +8,13 @@ import data from './data.json';
   providedIn: 'root',
 })
 export class JobListingsService {
-  jobListings: JobListing[] = [];
+  private jobListings: JobListing[] | null = null;
 
   constructor() {
     this.jobListings = [...data];
+  }
+
+  public getJobListings() {
+    return this.jobListings ? [...this.jobListings] : null;
   }
 }
