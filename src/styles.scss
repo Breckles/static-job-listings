@@ -49,4 +49,10 @@ html {
   --main-bg-color: var(--light-grayish-cyan-bg);
   --job-listing-bg-color: white;
   --job-listing-border-color: var(--desaturated-dark-cyan);
+  --job-listing-text-color-primary: var(--desaturated-dark-cyan);
+  --job-listing-text-color-secondary: black;
+  --job-listing-text-color-tertiary: hsl(192, 3%, 69%);
+  --highlight-pill-text-color: white;
+  --highlight-pill-new-bg-color: var(--desaturated-dark-cyan);
+  --highlight-pill-featured-bg-color: black;
 }

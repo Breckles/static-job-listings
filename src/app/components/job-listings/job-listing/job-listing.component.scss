@@ -8,3 +8,23 @@
   border-radius: 5px;
   background-color: var(--job-listing-bg-color);
 }
+
+p.company-and-highlights {
+  display: flex;
+  align-items: center;
+
+  font-size: 1.1rem;
+  color: var();
+
+  app-highlight-pill {
+    color: var(--highlight-pill-text-color);
+  }
+
+  app-highlight-pill.new {
+    background-color: var(--highlight-pill-new-bg-color);
+  }
+
+  app-highlight-pill.featured {
+    background-color: var(--highlight-pill-featured-bg-color);
+  }
+}

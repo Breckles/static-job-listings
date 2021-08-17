@@ -1,5 +1,11 @@
 <ng-container *ngIf="listing">
-  <p>{{listing.company}}</p>
+  <p class="company-and-highlights">
+    {{listing.company}}
+    <app-highlight-pill class="new"
+                        *ngIf="listing.new">NEW!</app-highlight-pill>
+    <app-highlight-pill class="featured"
+                        *ngIf="listing.featured">FEATURED</app-highlight-pill>
+  </p>
   <p>{{listing.position}}</p>
   <p>{{listing.postedAt}}&#8226;{{listing.contract}}&#8226;{{listing.location}}</p>
   <hr>

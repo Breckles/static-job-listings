@@ -9,9 +9,10 @@ import { LayoutComponent } from './components/layout/layout.component';
 import { HeaderComponent } from './components/layout/header/header.component';
 import { JobListingsComponent } from './components/job-listings/job-listings.component';
 import { JobListingComponent } from './components/job-listings/job-listing/job-listing.component';
+import { HighlightPillComponent } from './components/ui/highlight-pill/highlight-pill.component';
 
 @NgModule({
-  declarations: [AppComponent, HomePageComponent, LayoutComponent, HeaderComponent, JobListingsComponent, JobListingComponent],
+  declarations: [AppComponent, HomePageComponent, LayoutComponent, HeaderComponent, JobListingsComponent, JobListingComponent, HighlightPillComponent],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
