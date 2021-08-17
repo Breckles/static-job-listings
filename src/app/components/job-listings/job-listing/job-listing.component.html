@@ -1,4 +1,16 @@
-<p>job-listing works!</p>
 <ng-container *ngIf="listing">
-  {{listing.company}}
+  <p>{{listing.company}}</p>
+  <p>{{listing.position}}</p>
+  <p>{{listing.postedAt}}&#8226;{{listing.contract}}&#8226;{{listing.location}}</p>
+  <hr>
+  <div>
+    {{listing.role}}
+    {{listing.level}}
+    <ng-container *ngFor="let tool of listing.tools">
+      {{tool}}
+    </ng-container>
+    <ng-container *ngFor="let language of listing.languages">
+      {{language}}
+    </ng-container>
+  </div>
 </ng-container>
