@@ -1,4 +1,5 @@
 :host {
+  position: relative;
   display: block;
   width: 100%;
   height: 100%;
@@ -9,15 +10,33 @@
   background-color: var(--job-listing-bg-color);
 }
 
+img.logo {
+  position: absolute;
+  top: 0;
+  width: 16%;
+  transform: translateY(-50%);
+}
+
+p {
+  margin-bottom: 15px;
+}
+
 p.company-and-highlights {
   display: flex;
   align-items: center;
 
-  font-size: 1.1rem;
-  color: var();
+  color: var(--job-listing-text-color-primary);
+  font-size: 1.3rem;
+  font-weight: 700;
 
   app-highlight-pill {
     color: var(--highlight-pill-text-color);
+    font-size: 1.1rem;
+    margin-left: 8px;
+  }
+
+  app-highlight-pill:first-child {
+    margin-left: 16px;
   }
 
   app-highlight-pill.new {
@@ -26,5 +45,36 @@ p.company-and-highlights {
 
   app-highlight-pill.featured {
     background-color: var(--highlight-pill-featured-bg-color);
+  }
+}
+
+p.positionName {
+  font-weight: 700;
+}
+
+p.extraInfo {
+  display: flex;
+  gap: 7px;
+  margin-bottom: 20px;
+
+  color: var(--job-listing-text-color-tertiary);
+  font-size: 13px;
+}
+
+hr {
+  border: none;
+  background-color: var(--job-listing-text-color-tertiary);
+  height: 1px;
+}
+
+.filter-tablets {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+
+  app-filter-tablet {
+    font-size: 1.3rem;
+    font-weight: 700;
   }
 }

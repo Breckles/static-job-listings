@@ -1,4 +1,7 @@
 <ng-container *ngIf="listing">
+  <img class="logo"
+       src="../../../../assets/images/{{listing.logo}}"
+       alt="{{listing.company}} logo">
   <p class="company-and-highlights">
     {{listing.company}}
     <app-highlight-pill class="new"
@@ -6,17 +9,20 @@
     <app-highlight-pill class="featured"
                         *ngIf="listing.featured">FEATURED</app-highlight-pill>
   </p>
-  <p>{{listing.position}}</p>
-  <p>{{listing.postedAt}}&#8226;{{listing.contract}}&#8226;{{listing.location}}</p>
+  <p class="positionName">{{listing.position}}</p>
+  <p class="extraInfo">
+    {{listing.postedAt}}<span>&#8226;</span>{{listing.contract}}<span>&#8226;</span>{{listing.location}}</p>
   <hr>
-  <div>
-    {{listing.role}}
-    {{listing.level}}
-    <ng-container *ngFor="let tool of listing.tools">
-      {{tool}}
-    </ng-container>
-    <ng-container *ngFor="let language of listing.languages">
-      {{language}}
-    </ng-container>
+  <div class="filter-tablets">
+    <app-filter-tablet [category]="'role'"
+                       [value]='listing.role'>{{listing.role}}</app-filter-tablet>
+    <app-filter-tablet [category]="'level'"
+                       [value]='listing.level'>{{listing.level}}</app-filter-tablet>
+    <app-filter-tablet *ngFor="let tool of listing.tools"
+                       [category]="'tools'"
+                       [value]='tool'>{{tool}}</app-filter-tablet>
+    <app-filter-tablet *ngFor="let language of listing.languages"
+                       [category]="'languages'"
+                       [value]='language'>{{language}}</app-filter-tablet>
   </div>
 </ng-container>

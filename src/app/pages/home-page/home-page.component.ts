@@ -14,7 +14,7 @@ export class HomePageComponent implements OnInit {
     {
       id: 1,
       company: 'Photosnap',
-      logo: './images/photosnap.svg',
+      logo: 'photosnap.svg',
       new: true,
       featured: true,
       position: 'Senior Frontend Developer',
