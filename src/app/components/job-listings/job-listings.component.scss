@@ -14,3 +14,7 @@ li {
 
   box-shadow: 0 15px 5px -5px rgba($color: black, $alpha: 0.05);
 }
+
+app-job-listing.featured {
+  border-left: 5px solid var(--job-listing-border-color);
+}

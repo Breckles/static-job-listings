@@ -1,5 +1,6 @@
 <ul>
   <li *ngFor="let listing of listings">
-    <app-job-listing [listing]="listing"></app-job-listing>
+    <app-job-listing [listing]="listing"
+                     [ngClass]="{'featured': listing.featured}"></app-job-listing>
   </li>
 </ul>
