@@ -12,7 +12,10 @@ li {
   width: 100%;
   margin-bottom: 40px;
 
-  box-shadow: 0 15px 5px -5px rgba($color: black, $alpha: 0.05);
+  box-shadow:
+    0 15px 5px -5px rgba($color: black, $alpha: 0.05),
+    -5px 0 5px -5px rgba($color: black, $alpha: 0.05),
+    5px 0 5px -5px rgba($color: black, $alpha: 0.05);
 }
 
 app-job-listing.featured {

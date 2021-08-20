@@ -10,12 +10,14 @@ import data from './data.json';
   providedIn: 'root',
 })
 export class JobListingsService {
-  public filteredListingsSubject = new BehaviorSubject<JobListing[] | null>(
-    null
-  );
-  public currentFiltersSubject = new BehaviorSubject<Filter[]>([]);
   private listings: JobListing[] = [];
   private currentFilters: Filter[] = [];
+  public filteredListingsSubject = new BehaviorSubject<JobListing[]>(
+    this.listings
+  );
+  public currentFiltersSubject = new BehaviorSubject<Filter[]>(
+    this.currentFilters
+  );
 
   constructor() {
     this.listings = [...data];

@@ -2,7 +2,22 @@
   display: block;
   width: 100%;
 
-  padding: 50px 25px;
+  padding: 0 25px;
+}
+
+app-applied-filters,
+app-job-listings li {
+  color: red;
+  box-shadow:
+    0 15px 5px -5px rgba($color: black, $alpha: 0.05),
+    -5px 0 5px -5px rgba($color: black, $alpha: 0.05),
+    5px 0 5px -5px rgba($color: black, $alpha: 0.05);
+}
+
+app-applied-filters {
+  position: relative;
+  top: -35px;
+  margin-bottom: 25px;
 }
 
 app-job-listings {
