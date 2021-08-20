@@ -43,11 +43,11 @@ describe('HomePageComponent', () => {
   let component: HomePageComponent;
   let fixture: ComponentFixture<HomePageComponent>;
 
-  beforeEach(async () => {
-    const spyService = jasmine.createSpyObj('JobListingService', {
-      getListings: jobListings,
-    });
+  const spyService = jasmine.createSpyObj('JobListingService', {
+    getListings: jobListings,
+  });
 
+  beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [
         HomePageComponent,

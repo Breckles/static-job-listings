@@ -29,7 +29,8 @@ export class JobListingsService {
   public addFilter(filter: Filter) {
     if (!this.filterExists(filter)) {
       this.currentFilters.push(filter);
-      // this.applyFilters();
+      const newFilteredListings = this.applyFilters();
+      this.filteredListingsSubject.next(newFilteredListings);
     }
   }
 
@@ -47,16 +48,11 @@ export class JobListingsService {
   }
 
   private applyFilters() {
-    console.log('current filters: %o', this.currentFilters);
     let filteredListings: JobListing[] = [...this.listings];
 
     if (this.currentFilters.length > 0) {
-      filteredListings = this.listings.filter((listing, index) => {
-        console.log('listing: ', listing);
-
+      filteredListings = this.listings.filter((listing) => {
         for (const filter of this.currentFilters) {
-          console.log(`Filter ${index}: %o`, filter);
-
           const categoryValue = listing[filter.category];
           if (Array.isArray(categoryValue)) {
             if (!categoryValue.find((value) => value === filter.value)) {

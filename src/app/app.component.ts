@@ -8,12 +8,8 @@ import { JobListingsService } from './services/job-listings.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit {
-  public jobListings: JobListing[] | null = null;
+export class AppComponent {
+  public jobListings: JobListing[] = [];
 
-  constructor(private jls: JobListingsService) {}
-
-  ngOnInit() {
-    this.jobListings = this.jls.getListings();
-  }
+  constructor() {}
 }
