@@ -21,11 +21,12 @@ export class HomePageComponent implements OnInit {
     });
 
     this.jls.currentFiltersSubject.subscribe((filters) => {
-      this.appliedFilters = [
-        { category: 'role', value: 'Frontend' },
-        { category: 'languages', value: 'CSS' },
-        { category: 'languages', value: 'JavaScript' },
-      ];
+      // this.appliedFilters = [
+      //   { category: 'role', value: 'Frontend' },
+      //   { category: 'languages', value: 'CSS' },
+      //   { category: 'languages', value: 'JavaScript' },
+      // ];
+      this.appliedFilters = filters;
     });
   }
 }
