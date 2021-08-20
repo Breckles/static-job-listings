@@ -13,7 +13,7 @@ export class JobListingsService {
   public filteredListingsSubject = new BehaviorSubject<JobListing[] | null>(
     null
   );
-  public currentFiltersSubject = new BehaviorSubject<string[]>([]);
+  public currentFiltersSubject = new BehaviorSubject<Filter[]>([]);
   private listings: JobListing[] = [];
   private currentFilters: Filter[] = [];
 

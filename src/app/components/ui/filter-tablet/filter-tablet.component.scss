@@ -1,18 +1,48 @@
 :host {
   display: block;
-  border-radius: 5px;
-
-  background-color: var(--filter-tablet-bg-color);
 }
 
 button {
-  display: inline;
-  padding: 10px;
   border: none;
+  padding: 10px;
+}
 
-  background-color: transparent;
+button.add {
+  display: inline;
+  border-radius: 5px;
+  color: var(--filter-tablet-text-color);
+
+  background-color: var(--filter-tablet-bg-color);
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+.remove {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-left: 10px;
+  border-radius: 5px;
+
+  background-color: var(--filter-tablet-bg-color);
   color: var(--filter-tablet-text-color);
   font-family: inherit;
   font-size: inherit;
   font-weight: inherit;
+
+  button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--filter-tablet-remove-button-bg-color);
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+
+    svg {
+      path {
+        fill: var(--filter-tablet-remove-button-icon-color);
+      }
+    }
+  }
 }
