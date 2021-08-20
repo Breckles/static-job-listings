@@ -14,6 +14,6 @@ export class AppComponent implements OnInit {
   constructor(private jls: JobListingsService) {}
 
   ngOnInit() {
-    this.jobListings = this.jls.getJobListings();
+    this.jobListings = this.jls.getListings();
   }
 }

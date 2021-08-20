@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
+import Filter from '../models/filter.model';
 import { JobListing } from '../models/job-listing.model';
 
 import data from './data.json';
@@ -8,13 +10,68 @@ import data from './data.json';
   providedIn: 'root',
 })
 export class JobListingsService {
-  private jobListings: JobListing[] | null = null;
+  public filteredListingsSubject = new BehaviorSubject<JobListing[] | null>(
+    null
+  );
+  public currentFiltersSubject = new BehaviorSubject<string[]>([]);
+  private listings: JobListing[] = [];
+  private currentFilters: Filter[] = [];
 
   constructor() {
-    this.jobListings = [...data];
+    this.listings = [...data];
+    this.filteredListingsSubject.next([...this.listings]);
   }
 
-  public getJobListings() {
-    return this.jobListings ? [...this.jobListings] : null;
+  public getListings() {
+    return [...this.listings];
+  }
+
+  public addFilter(filter: Filter) {
+    if (!this.filterExists(filter)) {
+      this.currentFilters.push(filter);
+      // this.applyFilters();
+    }
+  }
+
+  private filterExists(filter: Filter) {
+    let filterExists = false;
+    for (const currentFilter of this.currentFilters) {
+      if (
+        currentFilter.category === filter.category &&
+        currentFilter.value === filter.value
+      ) {
+        filterExists = true;
+      }
+    }
+    return filterExists;
+  }
+
+  private applyFilters() {
+    console.log('current filters: %o', this.currentFilters);
+    let filteredListings: JobListing[] = [...this.listings];
+
+    if (this.currentFilters.length > 0) {
+      filteredListings = this.listings.filter((listing, index) => {
+        console.log('listing: ', listing);
+
+        for (const filter of this.currentFilters) {
+          console.log(`Filter ${index}: %o`, filter);
+
+          const categoryValue = listing[filter.category];
+          if (Array.isArray(categoryValue)) {
+            if (!categoryValue.find((value) => value === filter.value)) {
+              return false;
+            }
+          } else {
+            if (categoryValue !== filter.value) {
+              return false;
+            }
+          }
+        }
+        return true;
+      });
+    }
+
+    return filteredListings;
   }
 }

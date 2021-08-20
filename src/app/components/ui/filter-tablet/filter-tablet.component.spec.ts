@@ -11,7 +11,6 @@ class ContentProjectionTestComponent {}
 describe('FilterTabletComponent', () => {
   let component: FilterTabletComponent;
   let fixture: ComponentFixture<FilterTabletComponent>;
-  let componentEl: HTMLElement;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({

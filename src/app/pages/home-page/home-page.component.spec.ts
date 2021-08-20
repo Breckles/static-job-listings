@@ -45,7 +45,7 @@ describe('HomePageComponent', () => {
 
   beforeEach(async () => {
     const spyService = jasmine.createSpyObj('JobListingService', {
-      getJobListings: jobListings,
+      getListings: jobListings,
     });
 
     await TestBed.configureTestingModule({
