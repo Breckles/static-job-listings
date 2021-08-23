@@ -14,15 +14,11 @@
     {{listing.postedAt}}<span>&#8226;</span>{{listing.contract}}<span>&#8226;</span>{{listing.location}}</p>
   <hr>
   <div class="filter-tablets">
-    <app-filter-tablet [category]="'role'"
-                       [value]='listing.role'>{{listing.role}}</app-filter-tablet>
-    <app-filter-tablet [category]="'level'"
-                       [value]='listing.level'>{{listing.level}}</app-filter-tablet>
+    <app-filter-tablet [filter]="{category: 'role', value: listing.role}">{{listing.role}}</app-filter-tablet>
+    <app-filter-tablet [filter]="{category: 'level', value: listing.level}">{{listing.level}}</app-filter-tablet>
     <app-filter-tablet *ngFor="let tool of listing.tools"
-                       [category]="'tools'"
-                       [value]='tool'>{{tool}}</app-filter-tablet>
+                       [filter]="{category: 'tools', value: tool}">{{tool}}</app-filter-tablet>
     <app-filter-tablet *ngFor="let language of listing.languages"
-                       [category]="'languages'"
-                       [value]='language'>{{language}}</app-filter-tablet>
+                       [filter]="{category: 'languages', value: language}">{{language}}</app-filter-tablet>
   </div>
 </ng-container>

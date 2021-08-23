@@ -1,8 +1,15 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {
+  ComponentFixture,
+  fakeAsync,
+  TestBed,
+  tick,
+} from '@angular/core/testing';
+import { BehaviorSubject } from 'rxjs';
 
-import { JobListingsService } from 'src/app/services/job-listings.service';
-
+import JobListing from 'src/app/models/job-listing.model';
+import Filter from 'src/app/models/filter.model';
 import { HomePageComponent } from './home-page.component';
+import { JobListingsService } from 'src/app/services/job-listings.service';
 import { JobListingsComponent } from '../../components/job-listings/job-listings.component';
 import { JobListingComponent } from '../../components/job-listings/job-listing/job-listing.component';
 
@@ -43,9 +50,16 @@ describe('HomePageComponent', () => {
   let component: HomePageComponent;
   let fixture: ComponentFixture<HomePageComponent>;
 
-  const spyService = jasmine.createSpyObj('JobListingService', {
-    getListings: jobListings,
-  });
+  const filteredListingsSubject = new BehaviorSubject<JobListing[]>([]);
+  const currentFiltersSubject = new BehaviorSubject<Filter[]>([]);
+
+  const spyService = jasmine.createSpyObj(
+    'JobListingsService',
+    {
+      getListings: jobListings,
+    },
+    { filteredListingsSubject, currentFiltersSubject }
+  );
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -67,10 +81,20 @@ describe('HomePageComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('Should retrieve a list of job listings during initialization', () => {
-    expect(component.jobListings).toBeNull();
+  it('Should update the list of job listings when a new one is emitted', () => {
+    expect(component.jobListings).toEqual([]);
 
+    filteredListingsSubject.next(jobListings);
     component.ngOnInit();
     expect(component.jobListings).toEqual(jobListings);
   });
+
+  it('Should update the list of filters when a new one is emitted', fakeAsync(() => {
+    expect(component.appliedFilters).toEqual([]);
+
+    const newFilter: Filter = { category: 'languages', value: 'HTML' };
+    currentFiltersSubject.next([newFilter]);
+    fixture.detectChanges();
+    expect(component.appliedFilters).toEqual([newFilter]);
+  }));
 });

@@ -31,14 +31,21 @@ describe('JobListingsService', () => {
     }
   });
 
-  it('filterExists Should return true if the filter is already present in currentFilters, false otherwise', () => {
-    service['currentFilters'] = [{ category: 'role', value: 'testValue' }];
+  it('filterExists Should return -1 if the filter does not exist, the index of the filter otherwise.', () => {
+    service['currentFilters'] = [
+      { category: 'role', value: 'testValue' },
+      { category: 'level', value: 'Senior' },
+    ];
+    expect(
+      service['filterExists']({ category: 'role', value: 'fail' })
+    ).toEqual(-1);
     expect(
       service['filterExists']({ category: 'role', value: 'testValue' })
-    ).toBeTrue();
+    ).toEqual(0);
+
     expect(
-      service['filterExists']({ category: 'level', value: 'fail' })
-    ).toBeFalse();
+      service['filterExists']({ category: 'level', value: 'Senior' })
+    ).toEqual(1);
   });
 
   it('addFilter should add the new filter to currentFilters', () => {
@@ -58,6 +65,30 @@ describe('JobListingsService', () => {
     expect(service['currentFilters']).toEqual([
       { category: 'languages', value: 'JavaScript' },
       { category: 'level', value: 'Senior' },
+    ]);
+  });
+
+  it('removeFilter should remove the filter from currentFilters if it exists', () => {
+    service['currentFilters'] = [
+      { category: 'languages', value: 'JavaScript' },
+      { category: 'level', value: 'Senior' },
+      { category: 'tools', value: 'Sass' },
+    ];
+    expect(service['currentFilters']).toEqual([
+      { category: 'languages', value: 'JavaScript' },
+      { category: 'level', value: 'Senior' },
+      { category: 'tools', value: 'Sass' },
+    ]);
+    service.removeFilter({ category: 'level', value: 'Junior' });
+    expect(service['currentFilters']).toEqual([
+      { category: 'languages', value: 'JavaScript' },
+      { category: 'level', value: 'Senior' },
+      { category: 'tools', value: 'Sass' },
+    ]);
+    service.removeFilter({ category: 'level', value: 'Senior' });
+    expect(service['currentFilters']).toEqual([
+      { category: 'languages', value: 'JavaScript' },
+      { category: 'tools', value: 'Sass' },
     ]);
   });
 

@@ -1,8 +1,7 @@
 <ul>
   <li *ngFor="let filter of filters">
     <app-filter-tablet [mode]="'remove'"
-                       [category]='filter.category'
-                       [value]='filter.value'>
+                       [filter]="filter">
       {{filter.value}}
     </app-filter-tablet>
   </li>

@@ -28,25 +28,44 @@ export class JobListingsService {
     return [...this.listings];
   }
 
+  private emitUpdate() {
+    this.currentFiltersSubject.next(this.currentFilters);
+    const newFilteredListings = this.applyFilters();
+    this.filteredListingsSubject.next(newFilteredListings);
+  }
+
   public addFilter(filter: Filter) {
-    if (!this.filterExists(filter)) {
+    if (this.filterExists(filter) === -1) {
       this.currentFilters.push(filter);
-      const newFilteredListings = this.applyFilters();
-      this.filteredListingsSubject.next(newFilteredListings);
+      this.emitUpdate();
     }
   }
 
+  public removeFilter(filter: Filter) {
+    const filterIndex = this.filterExists(filter);
+    if (filterIndex !== -1) {
+      this.currentFilters.splice(filterIndex, 1);
+      this.emitUpdate();
+    }
+  }
+
+  /**
+   *
+   * @param {Filter} filter : The filter to check against;
+   * @returns -1 if the filter does not exist, the number index of the filter otherwise
+   */
   private filterExists(filter: Filter) {
-    let filterExists = false;
-    for (const currentFilter of this.currentFilters) {
+    let filterIndex = -1;
+    for (let i = 0; i < this.currentFilters.length; i++) {
+      const currentFilter = this.currentFilters[i];
       if (
         currentFilter.category === filter.category &&
         currentFilter.value === filter.value
       ) {
-        filterExists = true;
+        filterIndex = i;
       }
     }
-    return filterExists;
+    return filterIndex;
   }
 
   private applyFilters() {

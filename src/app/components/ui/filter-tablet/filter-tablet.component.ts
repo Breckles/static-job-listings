@@ -1,4 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import Filter from 'src/app/models/filter.model';
+
+import { JobListingsService } from 'src/app/services/job-listings.service';
 
 @Component({
   selector: 'app-filter-tablet',
@@ -9,11 +12,17 @@ export class FilterTabletComponent implements OnInit {
   @Input()
   public mode: 'add' | 'remove' = 'add';
   @Input()
-  public category: string | null = null;
-  @Input()
-  public value: string | null = null;
+  public filter: Filter | null = null;
 
-  constructor() {}
+  constructor(private jls: JobListingsService) {}
 
   ngOnInit(): void {}
+
+  public onAddFilterHandler() {
+    this.jls.addFilter(this.filter!);
+  }
+
+  public onRemoveFilterHandler() {
+    console.log('removing filter...');
+  }
 }

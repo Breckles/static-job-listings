@@ -3,17 +3,20 @@
 </ng-template>
 
 <button *ngIf="mode === 'add'"
-        class="add"
+        class="addBtn"
         type="button"
-        aria-label="Apply">
+        aria-label="Apply"
+        (click)="onAddFilterHandler()">
   <ng-container *ngTemplateOutlet="content"></ng-container>
 </button>
 
 <div *ngIf="mode === 'remove'"
      class="remove">
   <ng-container *ngTemplateOutlet="content"></ng-container>
-  <button type="button"
-          aria-label="Remove">
+  <button class="removeBtn"
+          type="button"
+          aria-label="Remove"
+          (click)="onRemoveFilterHandler()">
     <svg xmlns="http://www.w3.org/2000/svg"
          width="14"
          height="14">
