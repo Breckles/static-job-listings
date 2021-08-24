@@ -23,6 +23,6 @@ export class FilterTabletComponent implements OnInit {
   }
 
   public onRemoveFilterHandler() {
-    console.log('removing filter...');
+    this.jls.removeFilter(this.filter!);
   }
 }
