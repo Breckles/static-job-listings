@@ -18,6 +18,10 @@ li {
     5px 0 5px -5px rgba($color: black, $alpha: 0.05);
 }
 
+li:last-child {
+  margin-bottom: 0;
+}
+
 app-job-listing.featured {
   border-left: 5px solid var(--job-listing-border-color);
 }
