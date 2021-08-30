@@ -13,3 +13,12 @@ header {
   background-repeat: repeat-x;
   background-size: cover;
 }
+
+
+////////////// larger screens /////////////////////////
+
+@media screen and (min-width: 1000px) {
+  header {
+    background-image: url('../../../../assets/images/bg-header-desktop.svg');
+  }
+}

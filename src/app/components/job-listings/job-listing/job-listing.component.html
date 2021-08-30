@@ -2,16 +2,18 @@
   <img class="logo"
        src="../../../../assets/images/{{listing.logo}}"
        alt="{{listing.company}} logo">
-  <p class="company-and-highlights">
-    {{listing.company}}
-    <app-highlight-pill class="new"
-                        *ngIf="listing.new">NEW!</app-highlight-pill>
-    <app-highlight-pill class="featured"
-                        *ngIf="listing.featured">FEATURED</app-highlight-pill>
-  </p>
-  <p class="positionName">{{listing.position}}</p>
-  <p class="extraInfo">
-    {{listing.postedAt}}<span>&#8226;</span>{{listing.contract}}<span>&#8226;</span>{{listing.location}}</p>
+  <div class="info">
+    <p class="company-and-highlights">
+      {{listing.company}}
+      <app-highlight-pill class="new"
+                          *ngIf="listing.new">NEW!</app-highlight-pill>
+      <app-highlight-pill class="featured"
+                          *ngIf="listing.featured">FEATURED</app-highlight-pill>
+    </p>
+    <p class="positionName">{{listing.position}}</p>
+    <p class="extraInfo">
+      {{listing.postedAt}}<span>&#8226;</span>{{listing.contract}}<span>&#8226;</span>{{listing.location}}</p>
+  </div>
   <hr>
   <div class="filter-tablets">
     <app-filter-tablet [filter]="{category: 'role', value: listing.role}">{{listing.role}}</app-filter-tablet>
