@@ -143,6 +143,11 @@ hr {
     font-size: 1.7rem;
   }
 
+  p.positionName:hover {
+    cursor: pointer;
+    color: var(--job-listing-text-color-secondary-hover)
+  }
+
   p.extraInfo {
     font-size: 15px;
     gap: 10px;

@@ -54,13 +54,17 @@ html {
   --job-listing-border-color: var(--desaturated-dark-cyan);
   --job-listing-text-color-primary: var(--desaturated-dark-cyan);
   --job-listing-text-color-secondary: black;
+  --job-listing-text-color-secondary-hover: var(--desaturated-dark-cyan);
   --job-listing-text-color-tertiary: hsl(192, 3%, 69%);
   --highlight-pill-text-color: white;
   --highlight-pill-new-bg-color: var(--desaturated-dark-cyan);
   --highlight-pill-featured-bg-color: black;
   --filter-tablet-bg-color: var(--light-grayish-cyan-ft);
+  --filter-tablet-bg-color-hover: var(--desaturated-dark-cyan);
   --filter-tablet-text-color: var(--desaturated-dark-cyan);
+  --filter-tablet-text-color-hover: white;
   --filter-tablet-remove-button-bg-color: var(--desaturated-dark-cyan);
+  --filter-tablet-remove-button-bg-color-hover: black;
   --filter-tablet-remove-button-icon-color: white;
   --applied-filters-bg-color: white;
   --applied-filters-clear-button-text-color: var(--dark-grayish-cyan);

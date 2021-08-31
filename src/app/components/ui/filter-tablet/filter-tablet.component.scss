@@ -46,3 +46,23 @@ button {
     }
   }
 }
+
+
+////////////////// larger screens //////////////////
+
+@media screen and (min-width: 950px) {
+
+  .addBtn:hover,
+  .removeBtn:hover {
+    cursor: pointer;
+  }
+
+  .addBtn:hover {
+    background-color: var(--filter-tablet-bg-color-hover);
+    color: var(--filter-tablet-text-color-hover);
+  }
+
+  .remove .removeBtn:hover {
+    background-color: var(--filter-tablet-remove-button-bg-color-hover);
+  }
+}
