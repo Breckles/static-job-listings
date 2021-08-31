@@ -136,4 +136,20 @@ describe('JobListingsService', () => {
     service.addFilter({ category: 'level', value: 'Senior' });
     expect(service['applyFilters']().length).toEqual(1);
   });
+
+  it('clearFilters should remove all filters from currentFilters', () => {
+    service['currentFilters'] = [
+      { category: 'languages', value: 'JavaScript' },
+      { category: 'tools', value: 'Sass' },
+    ];
+
+    expect(service['currentFilters']).toEqual([
+      { category: 'languages', value: 'JavaScript' },
+      { category: 'tools', value: 'Sass' },
+    ]);
+
+    service.clearFilters();
+
+    expect(service['currentFilters']).toEqual([]);
+  });
 });

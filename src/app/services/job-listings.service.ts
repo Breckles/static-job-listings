@@ -49,6 +49,11 @@ export class JobListingsService {
     }
   }
 
+  public clearFilters() {
+    this.currentFilters = [];
+    this.emitUpdate();
+  }
+
   /**
    *
    * @param {Filter} filter : The filter to check against;
