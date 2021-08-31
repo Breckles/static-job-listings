@@ -21,3 +21,12 @@ li {
 li:last-child {
   margin-bottom: 0;
 }
+
+
+//////////////// Larger screens ///////////////////
+
+@media screen and (min-width: 950px) {
+  li {
+    margin-bottom: 25px;
+  }
+}

@@ -21,7 +21,7 @@
 img.logo {
   position: absolute;
   top: 0;
-  width: clamp(48px, 6%, 89px);
+  width: 48px;
   transform: translateY(-50%);
 }
 
@@ -89,14 +89,62 @@ hr {
 }
 
 
-/////////// larger screens /////////////
+/////////// medium screens /////////////
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 600px) {
   :host {
     display: flex;
+    align-items: center;
+    padding: 40px 20px 30px;
+  }
+
+  .info {
+    flex: 1 0 50%;
+  }
+
+  p.extraInfo {
+    margin: 0;
+  }
+
+  hr {
+    display: none;
+  }
+
+  .filter-tablets {
+    justify-content: flex-end;
+    margin-top: 0;
+    margin-left: auto;
+  }
+}
+
+/////////// larger screens /////////////
+
+@media screen and (min-width: 950px) {
+  :host {
+    padding: 30px 40px;
+  }
+
+  :host.featured {
+    padding-left: 35px;
   }
 
   img.logo {
     position: static;
+    transform: translateY(0);
+    width: 88px;
+    margin-right: 25px;
+  }
+
+  p.company-and-highlights {
+    font-size: 1.5rem;
+  }
+
+  p.positionName {
+    font-size: 1.7rem;
+  }
+
+  p.extraInfo {
+    font-size: 15px;
+    gap: 10px;
   }
 }

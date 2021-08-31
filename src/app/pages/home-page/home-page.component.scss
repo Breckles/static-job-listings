@@ -1,8 +1,9 @@
 :host {
   display: block;
   width: 100%;
-
+  max-width: 1150px;
   padding: 0 25px;
+  margin: 0 auto;
 }
 
 app-applied-filters,
