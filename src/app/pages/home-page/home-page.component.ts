@@ -1,14 +1,17 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 
 import Filter from 'src/app/models/filter.model';
 import { JobListingsService } from 'src/app/services/job-listings.service';
 import { JobListing } from 'src/app/models/job-listing.model';
-import { Subscription } from 'rxjs';
+
+import { showHideTrigger } from './home-page.animations';
 
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.scss'],
+  animations: showHideTrigger,
 })
 export class HomePageComponent implements OnInit, OnDestroy {
   public jobListings: JobListing[] = [];

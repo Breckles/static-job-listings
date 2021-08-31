@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -14,8 +15,18 @@ import { FilterTabletComponent } from './components/ui/filter-tablet/filter-tabl
 import { AppliedFiltersComponent } from './components/applied-filters/applied-filters.component';
 
 @NgModule({
-  declarations: [AppComponent, HomePageComponent, LayoutComponent, HeaderComponent, JobListingsComponent, JobListingComponent, HighlightPillComponent, FilterTabletComponent, AppliedFiltersComponent],
-  imports: [BrowserModule, AppRoutingModule],
+  declarations: [
+    AppComponent,
+    HomePageComponent,
+    LayoutComponent,
+    HeaderComponent,
+    JobListingsComponent,
+    JobListingComponent,
+    HighlightPillComponent,
+    FilterTabletComponent,
+    AppliedFiltersComponent,
+  ],
+  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
