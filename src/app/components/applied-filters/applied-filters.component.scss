@@ -32,3 +32,14 @@ ul {
     font-weight: 700;
   }
 }
+
+
+/////////////// Larger Screens ////////////////////
+
+@media screen and (min-width: 950px) {
+  .clearButtonWrapper button:hover {
+    cursor: pointer;
+    color: var(--applied-filters-clear-button-text-color-hover);
+    text-decoration: underline;
+  }
+}
